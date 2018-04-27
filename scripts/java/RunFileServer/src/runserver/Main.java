@@ -105,10 +105,12 @@ public class Main {
 				c.getProcess().restart();
 			});
 			
-			SwingUtil.addButton("Shutdown", buttonPanel, (Console c) -> c.getProcess().shutdown());
+			SwingUtil.addButton("Shutdown", buttonPanel, (Console c) -> {
+				c.print("Shutting down console");
+				c.getProcess().shutdown());
+			});
 			
 			return buttonPanel;
-		
 		};
 		
 		console.initialize(createTopPanel);
